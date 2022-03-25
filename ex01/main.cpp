@@ -7,8 +7,10 @@ int	main(void)
 	PhoneBook phonebook;
 	while (1)
 	{
-		std::cout << "Insert command: ";
+		std::cout << "Insert command (ADD, SERACH or EXIT): ";
 		std::getline(std::cin, command);
+		// if (!command)
+		// 	break ;
 		if (!command.compare("ADD"))
 			phonebook.AddContact();
 		else if (!command.compare("SEARCH"))

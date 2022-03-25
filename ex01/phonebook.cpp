@@ -41,10 +41,10 @@ void	PhoneBook::AddContact(void)
 		index = 0;
 	contacts[index].CreateContact();
 	index++;
-	std::cout << "index " << index << std::endl;
+	// std::cout << "index " << index << std::endl;
 	if (count < 8)
 		count++;
-	std::cout << "count " << count << std::endl;	
+	// std::cout << "count " << count << std::endl;	
 }
 
 void	PhoneBook::ShowContacts(void)
@@ -64,8 +64,8 @@ void	PhoneBook::ShowContacts(void)
 	std::cout << std::endl;
 	while (i < count)
 	{
-		std::cout << "i index " << i << std::endl;
-		std::cout << "2count " << count << std::endl;
+		// std::cout << "i index " << i << std::endl;
+		// std::cout << "2count " << count << std::endl;
 		std::cout << std::setw(10) << i;
     	std::cout << "|";
 		contacts[i].ShowContactList();
@@ -76,8 +76,8 @@ void	PhoneBook::ShowContacts(void)
 		std::cout << "Enter index: ";
 		std::getline(std::cin, index);
 		casted = CastIndex(index);
-		std::cout << "casted " << casted << std::endl;	
-		if (casted < 0 || casted > 7)
+		// std::cout << "casted " << casted << std::endl;	
+		if (casted < 0 || casted >= count)
 			std::cout << "Incorrect index!" << std::endl;
 		else
 			contacts[casted].ShowContact();

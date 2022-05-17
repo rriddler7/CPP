@@ -21,19 +21,8 @@ void    HumanB::setWeapon(Weapon &weapB)
 
 void	HumanB::attack(void)
 {
-	std::cout << this->name << " attacks with their " << weapon->getType() << std::endl;
+	if (weapon == NULL)
+		std::cout << this->name << " without weapon " << std::endl;
+	else
+		std::cout << this->name << " attacks with their " << weapon->getType() << std::endl;
 }
-
-// {
-// 	private:
-// 		Weapon *weapon; //? Weapon *weapon;
-// 		std::string name;
-// 	public:
-// 		HumanB(std::string);
-// 		~HumanB(void);
-
-// 		void	setName(std::string);
-// 		void    setWeapon(Weapon&); //?
-// 		void	attack(void);
-// };
-		

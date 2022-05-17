@@ -32,8 +32,7 @@ int	main(int argc, char **argv)
             while (argv[n][m] != '\0')
             {
                 argv[n][m] = toupper(argv[n][m]);
-                if (argv[n][m] != '\'' && argv[n][m] != '"')
-                    std::cout << argv[n][m];
+                std::cout << argv[n][m];
                 m++;
             }
             n++;

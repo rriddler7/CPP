@@ -1,11 +1,11 @@
-NAME =	phonebook
+NAME =	scavtrap
 
-SRC = main.cpp \
-		phonebook.cpp \
-		contact.cpp \
+SRC = 	main.cpp \
+		ClapTrap.cpp \
+		ScavTrap.cpp \
 
-HEADER = phonebook.hpp \
-		 contact.hpp \
+HEADER = ClapTrap.hpp \
+		 ScavTrap.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

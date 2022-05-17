@@ -24,31 +24,42 @@ Contact::~Contact(void)
 
 void	Contact::CreateContact(void)
 {
-	while (firstName.empty())
+	do
 	{
 		std::cout << "Enter first name: ";
 		std::getline(std::cin, firstName);
-	}
-	while (lastName.empty())
+		if (std::cin.eof())
+			exit(0);
+	} while (firstName.size() == 0);
+	do
 	{
 		std::cout << "Enter last name: ";
 		std::getline(std::cin, lastName);
-	}
-	while (nickName.empty())
+		if (std::cin.eof())
+			exit(0);
+	} while (lastName.size() == 0);
+	do
 	{
 		std::cout << "Enter nickname: ";
 		std::getline(std::cin, nickName);
+		if (std::cin.eof())
+			exit(0);
 	}
-	while (phoneNumber.empty())
+	while (nickName.size() == 0);
+	do
 	{
 		std::cout << "Enter phone number: ";
 		std::getline(std::cin, phoneNumber);
-	}
-	while (darkSecret.empty())
+		if (std::cin.eof())
+			exit(0);
+	} while (phoneNumber.size() == 0);
+	do
 	{
 		std::cout << "Enter darkest secret: ";
 		std::getline(std::cin, darkSecret);
-	}
+		if (std::cin.eof())
+			exit(0);
+	} while (darkSecret.size() == 0);
 	return;
 }
 
@@ -61,7 +72,7 @@ void	Contact::ShowField(std::string field)
 	}
 	else
 		std::cout << std::setw(10) << field;
-	return; 
+	return;
 }
 
 void	Contact::ShowContactList(void)

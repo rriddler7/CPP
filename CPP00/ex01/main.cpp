@@ -9,6 +9,8 @@ int	main(void)
 	{
 		std::cout << "Insert command (ADD, SEARCH or EXIT): ";
 		std::getline(std::cin, command);
+		if (std::cin.eof())
+			exit(0);
 		if (!command.compare("ADD"))
 			phonebook.AddContact();
 		else if (!command.compare("SEARCH"))

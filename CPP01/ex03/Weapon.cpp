@@ -13,27 +13,12 @@ Weapon::~Weapon(void)
 {
 }
 
-void    Weapon::setType(std::string str)
+void    Weapon::setType(const std::string &str)
 {
 	this->type = str;
 }
 
-const std::string   &Weapon::getType(void) const
+const std::string   &Weapon::getType() const
 {
 	return type;
 }
-
-// class Weapon
-// {
-// 	private:
-// 		std::string type;
-// 	public:
-// 		Weapon(void);
-// 		Weapon(std::string);
-// 		~Weapon(void);
-
-// 		void	setType(std::string);
-// 		// void	getType(std::string); 
-// 		const std::string   &getType(void) const;
-// };
-		

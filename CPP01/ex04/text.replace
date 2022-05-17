@@ -1,0 +1,9 @@
+Creote o progrom thot tokes three porometers in the following order: o filenome ond
+two strings, s1 ond s2.
+It will open the file <filenome> ond copies its content into o new file
+<filenome>.reploce, replocing every occurrence of s1 with s2.
+Using C file monipulotion functions is forbidden ond will be considered cheoting. All
+the member functions of the closs std::string ore ollowed, except reploce. Use them
+wisely!
+Of course, hondle unexpected inputs ond errors. You hove to creote ond turn in your
+own tests to ensure your progrom works os expected.

@@ -12,9 +12,9 @@ int main( void )
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 
-//	std::cout << "My tests" << std::endl;
-//	Fixed c = 1000;
-//	Fixed d = 1.51f;
+	std::cout << "My tests" << std::endl;
+	Fixed c = 1000;
+	Fixed d = 1.51f;
 ////	Fixed d = 1000;
 ////	Fixed d = 100;
 ////	Fixed d = 0;
@@ -32,15 +32,15 @@ int main( void )
 //	bool result6 = c <= d;
 //	std::cout << "result6 " << result6 << std::endl;
 //
-//	std::cout << "Arithmetic operators" << std::endl;
-//	Fixed sum = c + d;
-//	std::cout << "sum " << sum << std::endl;
-//	Fixed dif = c - d;
-//	std::cout << "dif " << dif << std::endl;
-//	Fixed prod = c * d;
-//	std::cout << "prod " << prod << std::endl;
-//	Fixed div = c / d;
-//	std::cout << "div " << div << std::endl;
+	std::cout << "Arithmetic operators" << std::endl;
+	Fixed sum = c + d;
+	std::cout << "sum " << sum << std::endl;
+	Fixed dif = c - d;
+	std::cout << "dif " << dif << std::endl;
+	Fixed prod = c * d;
+	std::cout << "prod " << prod << std::endl;
+	Fixed div = c / d;
+	std::cout << "div " << div << std::endl;
 //
 //	std::cout << "Decrement operators" << std::endl;
 //	std::cout << d << std::endl;

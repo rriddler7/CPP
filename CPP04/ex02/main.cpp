@@ -1,6 +1,14 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
+void abstract_tests()
+{
+	const Animal* j = new Animal();
+//	Animal i;
+
+	delete j;
+}
+
 void subject_tests()
 {
 	const Animal* j = new Dog();
@@ -110,25 +118,27 @@ void	other_tests()
 
 int	main()
 {
-	std::cout << "Tests of subject" << std::endl;
-	std::cout << std::endl;
-	subject_tests();
-	std::cout << std::endl;
-	std::cout << "Tests of array" << std::endl;
-	std::cout << std::endl;
-	array_tests();
-	std::cout << std::endl;
-	std::cout << "Tests of copy constructor" << std::endl;
-	std::cout << std::endl;
-	copy_constructor_tests();
-	std::cout << std::endl;
-	std::cout << "Tests of copy assignment operator" << std::endl;
-	std::cout << std::endl;
-	assign_operator_tests();
-	std::cout << std::endl;
-	std::cout << "Other tests" << std::endl;
-	std::cout << std::endl;
-	other_tests();
+//	std::cout << "Tests of subject" << std::endl;
+//	std::cout << std::endl;
+//	subject_tests();
+//	std::cout << std::endl;
+//	std::cout << "Tests of array" << std::endl;
+//	std::cout << std::endl;
+//	array_tests();
+//	std::cout << std::endl;
+//	std::cout << "Tests of copy constructor" << std::endl;
+//	std::cout << std::endl;
+//	copy_constructor_tests();
+//	std::cout << std::endl;
+//	std::cout << "Tests of copy assignment operator" << std::endl;
+//	std::cout << std::endl;
+//	assign_operator_tests();
+//	std::cout << std::endl;
+//	std::cout << "Other tests" << std::endl;
+//	std::cout << std::endl;
+//	other_tests();
+//	std::cout << std::endl;
+	abstract_tests();
 
 	return 0;
 }

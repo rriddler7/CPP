@@ -3,53 +3,41 @@
 
 int	main()
 {
-//	std::cout << "Tests: create vogon!" << std::endl;
-//	try
-//	{
-//		Bureaucrat vogon("Vogon", 21);
-////		Bureaucrat vogon("Vogon", 151);
-////		Bureaucrat vogon("Vogon", 0);
-//		std::cout << vogon;
-//	}
-//	catch (int except)
-//	{
-//		if (except == 1)
-//			std::cout << "Bureaucrat::GradeTooLowException" << std::endl;
-//		if (except == 2)
-//			std::cout << "Bureaucrat::GradeTooHighException" << std::endl;
-//	}
-//	std::cout << std::endl;
-//
-//	std::cout << "Tests: change grade!" << std::endl;
-//	Bureaucrat vogon2("Vogon2", 42);
-//	vogon2.upgrade();
-//	std::cout << vogon2;
-//	vogon2.downgrade();
-//	std::cout << vogon2;
-//	std::cout << std::endl;
-//	Bureaucrat vogon3("Vogon_senior", 1);
-//	vogon3.upgrade();
-//	std::cout << std::endl;
-//	Bureaucrat vogon4("Vogon_junior", 150);
-//	vogon4.downgrade();
-//	std::cout << std::endl;
-
-	std::cout << "Tests: create form!" << std::endl;
+	std::cout << "Tests: create Vogon!" << std::endl;
 	try
 	{
-//		Form form("Form1", 21, 42);
-//		Form form("Form1", 21, 151);
-		Form form("Form1", 0, 42);
-		std::cout << form;
+//		Bureaucrat vogon("Vogon", 21);
+//		Bureaucrat vogon("Vogon", 0);
+		Bureaucrat vogon("Vogon", 151);
+		std::cout << vogon;
 	}
-	catch (int except)
+	catch (std::exception &e)
 	{
-		if (except == 1)
-			std::cout << "Form::GradeTooLowException" << std::endl;
-		if (except == 2)
-			std::cout << "Form::GradeTooHighException" << std::endl;
+		std::cout << "Vogon couldn’t create because " << e.what() << std::endl;
 	}
 	std::cout << std::endl;
+
+	std::cout << "Tests: create Form!" << std::endl;
+	try
+	{
+//		Form form("Form", 21, 42);
+//		Form form("Form", 0, 42);
+		Form form("Form", 21, 151);
+		std::cout << form;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Form couldn’t create because " << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout << "Tests: sign form!" << std::endl;
+	Bureaucrat vogon2("Vogon2", 21);
+//	Bureaucrat vogon2("Vogon2", 22);
+	Form form2("Form2", 21, 42);
+	form2.beSigned(vogon2);
+	std::cout << std::endl;
+//	vogon2.signForm(form2);
 
 	return 0;
 }

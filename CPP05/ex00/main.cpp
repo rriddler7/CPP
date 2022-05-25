@@ -2,20 +2,17 @@
 
 int	main()
 {
-	std::cout << "Tests: create vogon!" << std::endl;
+	std::cout << "Tests: create Vogon!" << std::endl;
 	try
 	{
-		Bureaucrat vogon("Vogon", 21);
+//		Bureaucrat vogon("Vogon", 21);
+		Bureaucrat vogon("Vogon", 0);
 //		Bureaucrat vogon("Vogon", 151);
-//		Bureaucrat vogon("Vogon", 0);
 		std::cout << vogon;
 	}
-	catch (int except)
+	catch (std::exception &e)
 	{
-		if (except == 1)
-			std::cout << "Bureaucrat::GradeTooLowException" << std::endl;
-		if (except == 2)
-			std::cout << "Bureaucrat::GradeTooHighException" << std::endl;
+		std::cout << "Bureaucrat couldn’t create because " << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 

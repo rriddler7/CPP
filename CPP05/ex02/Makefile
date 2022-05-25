@@ -1,11 +1,17 @@
-NAME =	form
+NAME =	forms
 
 SRC = 	main.cpp \
 		Bureaucrat.cpp \
 		Form.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp \
 
 HEADER = Bureaucrat.hpp \
 		Form.hpp \
+		ShrubberyCreationForm.hpp \
+		RobotomyRequestForm.hpp \
+		PresidentialPardonForm.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

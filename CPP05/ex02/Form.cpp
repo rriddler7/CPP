@@ -1,5 +1,10 @@
 #include "Form.hpp"
 
+Form::Form() : _name("Noname"), _gradeSign(0), _gradeExecute(0)
+{
+	std::cout << "Default constructor Form called" << std::endl;
+}
+
 Form::Form(const std::string name, const int gradeSign, const int gradeExecute) :
 		_name(name), _sign(false), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
 {
@@ -34,11 +39,6 @@ Form::~Form()
 std::string	Form::getName() const
 {
 	return (this->_name);
-}
-
-Form::Form() : _gradeSign(0), _gradeExecute(0)
-{
-	std::cout << "Default constructor Form called" << std::endl;
 }
 
 bool	Form::getSign() const

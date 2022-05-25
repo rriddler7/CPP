@@ -14,19 +14,13 @@ public:
 	Form(const std::string name, const int gradeSign, const int gradeExecute);
 	Form(const Form &);
 	Form & operator = (const Form &);
-	~Form();
+	virtual ~Form();
 	std::string	getName() const;
 	bool 		getSign() const;
 	int			getGradeSign() const;
 	int			getGradeExecute() const;
-	void	beSigned(Bureaucrat &bureaucrat);
-
-private:
-	Form();
-	const std::string	_name;
-	bool 				_sign;
-	const int			_gradeSign;
-	const int			_gradeExecute;
+	void		beSigned(Bureaucrat &bureaucrat);
+	virtual void	execute(Bureaucrat const & executor) const = 0;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -43,6 +37,13 @@ private:
 			return "grade of form is too low!";
 		}
 	};
+
+private:
+	Form();
+	const std::string	_name;
+	bool 				_sign;
+	const int			_gradeSign;
+	const int			_gradeExecute;
 };
 
 std::ostream &operator<<(std::ostream &out, Form &form);

@@ -9,15 +9,15 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
 //	try
 //	{
-	if (grade > 150)
-		throw (GradeTooLowException());
-	else if (grade < 1)
-		throw (GradeTooHighException());
-	else
-	{
-		this->_grade = grade;
-		std::cout << "Constructor Bureaucrat " << this->_name << " called" << std::endl;
-	}
+		if (grade > 150)
+			throw (GradeTooLowException());
+		else if (grade < 1)
+			throw (GradeTooHighException());
+		else
+		{
+			this->_grade = grade;
+			std::cout << "Constructor Bureaucrat " << this->_name << " called" << std::endl;
+		}
 //	}
 //	catch (std::exception &error)
 //	{
@@ -76,6 +76,34 @@ void	Bureaucrat::downgrade()
 	else
 	{
 		std::cout << "Downgrade is not possible. " << this->_name << " have the lowest possible grade :(" << std::endl;
+	}
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		if (form.getSign() == true)
+		{
+			std::cout << this->_name << " signed " << form.getName() << std::endl;
+		}
+	}
+	catch(std::exception &error)
+	{
+		std::cout << this->_name << " couldn’t sign " << form.getName() << " because " << error.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch(std::exception &error)
+	{
+		std::cout << this->_name << " couldn’t execute " << form.getName() << " because " << error.what() << std::endl;
 	}
 }
 

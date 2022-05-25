@@ -25,30 +25,25 @@ Intern::~Intern()
 Form	*Intern::makeForm(std::string name, std::string target)
 {
 	int i = 0;
-	Form* f = NULL;
+	Form *form = NULL;
 
-	std::string	forms[3] = { "ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm:" };
-	while (i < 3 && forms[i] != name)
+	std::string	forms[3] = { "ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm" };
+	while (i < 3 && name != forms[i])
 		++i;
 	switch (i)
 	{
 		case 0:
-			f = new ShrubberyCreationForm(formTarget);
+			form = new ShrubberyCreationForm(target);
 			break;
 		case 1:
-			f = new RobotomyRequestForm(formTarget);
+			form = new RobotomyRequestForm(target);
 			break;
 		case 2:
-			f = new PresidentialPardonForm(formTarget);
+			form = new PresidentialPardonForm(target);
 			break;
 		default:
-			throw FormIsNotCreatedException();
+			throw (FormNameException());
 	}
-	std::cout << "Intern creates " << *f << std::endl;
-	return f;
-}
-
-const char* Intern::FormIsNotCreatedException::what() const throw()
-{
-	return "Intern couldn't create form!";
+	std::cout << "Intern creates " << *form << std::endl;
+	return form;
 }

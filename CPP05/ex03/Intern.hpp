@@ -1,8 +1,12 @@
+#include <iostream>
+#include <string>
+
 #ifndef INTERN_HPP
 #define INTERN_HPP
 
-#include <iostream>
-#include <string>
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 class Intern {
 public:
@@ -10,15 +14,15 @@ public:
 	Intern(const Intern &);
 	Intern & operator = (const Intern &);
 	~Intern();
-	Form	*makeForm(const std::string name, constd std::string target);
+	Form	*makeForm(const std::string name, const std::string target);
 
-	class FormIsNotCreatedException : public std::exception
+	class FormNameException : public std::exception
 	{
-	public:
-		virtual const char* what() const throw();
+		const char* what() const throw()
+		{
+			return "form name doesn't exist!";
+		}
 	};
 };
-
-//std::ostream &operator<<(std::ostream &out, Intern &bureaucrat);
 
 #endif

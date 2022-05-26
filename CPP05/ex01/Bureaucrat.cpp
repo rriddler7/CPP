@@ -7,22 +7,15 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
-//	try
-//	{
-		if (grade > 150)
-			throw (GradeTooLowException());
-		else if (grade < 1)
-			throw (GradeTooHighException());
-		else
-		{
-			this->_grade = grade;
-			std::cout << "Constructor Bureaucrat " << this->_name << " called" << std::endl;
-		}
-//	}
-//	catch (std::exception &error)
-//	{
-//		std::cout << error.what() << std::endl;
-//	}
+	if (grade > 150)
+		throw (GradeTooLowException());
+	else if (grade < 1)
+		throw (GradeTooHighException());
+	elseы
+	{
+		this->_grade = grade;
+		std::cout << "Constructor Bureaucrat " << this->_name << " called" << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat & prototype) : _name(prototype._name)
@@ -57,25 +50,37 @@ int		Bureaucrat::getGrade() const
 
 void	Bureaucrat::upgrade()
 {
-	if (getGrade() > 1)
+	try
 	{
-		this->_grade = getGrade() - 1;
+		if (getGrade() == 1)
+			throw (GradeTooHighException());
+		else
+		{
+			this->_grade = getGrade() - 1;
+			std::cout << "Bureaucrat " << this->_name << " upgraded to " << this->_grade << std::endl;
+		}
 	}
-	else
+	catch (std::exception &e)
 	{
-		std::cout << "Upgrade is not possible. " << this->_name << " have the highest possible grade :)" << std::endl;
+		std::cout << "Upgrade of " << this->_name << " is not possible" << " because " << e.what() << std::endl;
 	}
 }
 
 void	Bureaucrat::downgrade()
 {
-	if (getGrade() < 150)
+	try
 	{
-		this->_grade = getGrade() + 1;
+		if (getGrade() == 150)
+			throw (GradeTooLowException());
+		else
+		{
+			this->_grade = getGrade() + 1;
+			std::cout << "Bureaucrat " << this->_name << " downgraded to " << this->_grade << std::endl;
+		}
 	}
-	else
+	catch (std::exception &e)
 	{
-		std::cout << "Downgrade is not possible. " << this->_name << " have the lowest possible grade :(" << std::endl;
+		std::cout << "Downgrade of " << this->_name << " is not possible" << " because " << e.what() << std::endl;
 	}
 }
 

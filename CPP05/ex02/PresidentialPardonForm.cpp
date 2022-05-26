@@ -1,7 +1,7 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() :
-		Form("PresidentialPardonForm", 25, 5), _target("PardonForm")
+		Form("PresidentialPardonForm", 25, 5), _target("Nobody")
 {
 	std::cout << "Default constructor PresidentialPardonForm " << this->getName() << " called" << std::endl;
 }
@@ -40,12 +40,19 @@ std::string	PresidentialPardonForm::getTarget() const
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	if (this->getGradeExecute() < executor.getGrade())
+	try
 	{
-		throw GradeTooLowException();
+		if (this->getGradeExecute() < executor.getGrade())
+		{
+			throw GradeTooHighException();
+		}
+		else
+		{
+			std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+		}
 	}
-	else
+	catch (std::exception &e)
 	{
-		std::cout << this->_target << "has been pardoned by Zaphod Beeblebrox" << std::endl;
+		std::cout << "PresidentialPardonForm couldn’t execute by " << executor.getName() << " because " << e.what() << std::endl;
 	}
 }

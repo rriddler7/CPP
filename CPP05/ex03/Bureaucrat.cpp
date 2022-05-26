@@ -7,22 +7,15 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
-//	try
-//	{
-		if (grade > 150)
-			throw (GradeTooLowException());
-		else if (grade < 1)
-			throw (GradeTooHighException());
-		else
-		{
-			this->_grade = grade;
-			std::cout << "Constructor Bureaucrat " << this->_name << " called" << std::endl;
-		}
-//	}
-//	catch (std::exception &error)
-//	{
-//		std::cout << error.what() << std::endl;
-//	}
+	if (grade > 150)
+		throw (GradeTooLowException());
+	else if (grade < 1)
+		throw (GradeTooHighException());
+	else
+	{
+		this->_grade = grade;
+		std::cout << "Constructor Bureaucrat " << this->_name << " called" << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat & prototype) : _name(prototype._name)

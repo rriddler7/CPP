@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() :
-		Form("ShrubberyCreationForm", 145, 137), _target("TreeForm")
+		Form("ShrubberyCreationForm", 145, 137), _target("SweetHome")
 {
 	std::cout << "Default constructor ShrubberyCreationForm " << this->getName() << " called" << std::endl;
 }
@@ -59,22 +59,30 @@ const std::string ShrubberyCreationForm::_tree =
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (this->getGradeExecute() < executor.getGrade())
+	try
 	{
-		throw GradeTooLowException();
-	}
-	else
-	{
-		const std::string filename = this->_target + "_shrubbery";
-		std::ofstream file(filename.c_str());
-		if (!file.is_open())
+		if (this->getGradeExecute() < executor.getGrade())
 		{
-			std::cout << "File do not open!" << std::endl;
+			throw GradeTooHighException();
 		}
 		else
 		{
-			file << _tree;
-			file.close();
+			const std::string filename = this->_target + "_shrubbery";
+			std::ofstream file(filename.c_str());
+			if (!file.is_open())
+			{
+				std::cout << "File do not open!" << std::endl;
+			}
+			else
+			{
+				std::cout << "Tree planted at " << this->_target << std::endl;
+				file << _tree;
+				file.close();
+			}
 		}
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "ShrubberyCreationForm couldn’t execute by " << executor.getName() << " because " << e.what() << std::endl;
 	}
 }

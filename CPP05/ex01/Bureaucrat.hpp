@@ -19,10 +19,6 @@ public:
 	void	upgrade();
 	void	downgrade();
 	void	signForm(Form &form);
-private:
-	Bureaucrat();
-	const std::string	_name;
-	int					_grade;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -39,6 +35,11 @@ private:
 			return "grade of bureaucrat is too low!";
 		}
 	};
+
+private:
+	Bureaucrat();
+	const std::string	_name;
+	int					_grade;
 };
 
 

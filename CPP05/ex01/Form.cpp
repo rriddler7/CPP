@@ -1,13 +1,21 @@
 #include "Form.hpp"
 
+Form::Form() : _gradeSign(0), _gradeExecute(0)
+{
+	std::cout << "Default constructor Form called" << std::endl;
+}
+
 Form::Form(const std::string name, const int gradeSign, const int gradeExecute) :
 		_name(name), _sign(false), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
 {
 	if (gradeSign > 150 || gradeExecute > 150)
 		throw (GradeTooLowException());
-	if (gradeSign < 1 || gradeExecute < 1)
+	else if (gradeSign < 1 || gradeExecute < 1)
 		throw (GradeTooHighException());
-	std::cout << "Constructor Form " << this->_name << " called" << std::endl;
+	else
+	{
+		std::cout << "Constructor Form " << this->_name << " called" << std::endl;
+	}
 }
 
 Form::Form(const Form & prototype) :
@@ -36,11 +44,6 @@ std::string	Form::getName() const
 	return (this->_name);
 }
 
-Form::Form() : _gradeSign(0), _gradeExecute(0)
-{
-	std::cout << "Default constructor Form called" << std::endl;
-}
-
 bool	Form::getSign() const
 {
 	return (this->_sign);
@@ -61,7 +64,7 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 	try
 	{
 		if (bureaucrat.getGrade() > this->_gradeSign)
-			throw (GradeTooLowException());
+			throw (GradeTooHighException());
 		else
 		{
 			this->_sign = true;

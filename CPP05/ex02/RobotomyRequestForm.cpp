@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() :
-		Form("RobotomyRequestForm", 72, 45), _target("RobotForm")
+		Form("RobotomyRequestForm", 72, 45), _target("MyJob")
 {
 	std::cout << "Default constructor RobotomyRequestForm " << this->getName() << " called" << std::endl;
 }
@@ -40,17 +40,25 @@ std::string	RobotomyRequestForm::getTarget() const
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	if (this->getGradeExecute() < executor.getGrade())
+	try
 	{
-		throw GradeTooLowException();
-	}
-	else
-	{
-		int amount = rand();
-		std::cout << "Drrrrrrrrrrrrrrrrrrrrrrrrrr" << std::endl;
-		if (amount % 2 == 0)
-			std::cout << this->_target <<  " has been robotomized successfully" << std::endl;
+		if (this->getGradeExecute() < executor.getGrade())
+		{
+			throw GradeTooLowException();
+		}
 		else
-			std::cout << this->_target <<  "Robotomy failed" << std::endl;
+		{
+			int amount = rand();
+			std::srand(std::time(0));
+			std::cout << "Drrrrrrrrrrrrrrrrrrrrrrrrrr" << std::endl;
+			if (amount % 2 == 0)
+				std::cout << this->_target << " has been robotomized successfully" << std::endl;
+			else
+				std::cout << this->_target << " failed" << std::endl;
+		}
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "RobotomyRequestForm couldn’t execute by " << executor.getName() << " because " << e.what() << std::endl;
 	}
 }

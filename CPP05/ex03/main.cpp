@@ -12,7 +12,7 @@ int	main()
 
 	try
 	{
-		form = intern.makeForm("ShrubberyCreationForm", "TreeForm");
+		form = intern.makeForm("ShrubberyCreationForm", "sweet home");
 		delete form;
 	}
 	catch (std::exception &e)
@@ -23,7 +23,7 @@ int	main()
 
 	try
 	{
-		form = intern.makeForm("RobotomyRequestForm", "Bender");
+		form = intern.makeForm("RobotomyRequestForm", "my job");
 		delete form;
 	}
 	catch (std::exception &e)
@@ -34,7 +34,7 @@ int	main()
 
 	try
 	{
-		form = intern.makeForm("PresidentialPardonForm", "Pardon");
+		form = intern.makeForm("PresidentialPardonForm", "Humma Kavula");
 		delete form;
 	}
 	catch (std::exception &e)

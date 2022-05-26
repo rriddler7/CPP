@@ -10,9 +10,11 @@ Form::Form(const std::string name, const int gradeSign, const int gradeExecute) 
 {
 	if (gradeSign > 150 || gradeExecute > 150)
 		throw (GradeTooLowException());
-	if (gradeSign < 1 || gradeExecute < 1)
+	else if (gradeSign < 1 || gradeExecute < 1)
 		throw (GradeTooHighException());
-	std::cout << "Constructor Form " << this->_name << " called" << std::endl;
+	{
+		std::cout << "Constructor Form " << this->_name << " called" << std::endl;
+	}
 }
 
 Form::Form(const Form & prototype) :
@@ -61,7 +63,7 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 	try
 	{
 		if (bureaucrat.getGrade() > this->_gradeSign)
-			throw (GradeTooLowException());
+			throw (GradeTooHighException());
 		else
 		{
 			this->_sign = true;

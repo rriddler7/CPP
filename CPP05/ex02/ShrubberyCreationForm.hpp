@@ -1,7 +1,7 @@
-#include <fstream>
-
 #ifndef SHRUBBERRYCREATIONFORM_HPP
 #define SHRUBBERRYCREATIONFORM_HPP
+
+#include <fstream>
 
 #include "Form.hpp"
 

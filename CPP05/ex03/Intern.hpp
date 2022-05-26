@@ -20,7 +20,7 @@ public:
 	{
 		const char* what() const throw()
 		{
-			return "form name doesn't exist!";
+			return "form with this name doesn't exist!";
 		}
 	};
 };

@@ -1,8 +1,8 @@
-//#include <cstdlib>
-//#include <ctime>
-
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
+
+#include <cstdlib>
+#include <ctime>
 
 #include "Form.hpp"
 

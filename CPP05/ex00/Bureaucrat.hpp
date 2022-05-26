@@ -14,10 +14,6 @@ public:
 	int		getGrade() const;
 	void	upgrade();
 	void	downgrade();
-private:
-	Bureaucrat();
-	const std::string	_name;
-	int					_grade;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -34,6 +30,11 @@ private:
 			return "grade of bureaucrat is too low!";
 		}
 	};
+
+private:
+	Bureaucrat();
+	const std::string	_name;
+	int					_grade;
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &bureaucrat);

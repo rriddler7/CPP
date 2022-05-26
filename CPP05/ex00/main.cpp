@@ -5,8 +5,8 @@ int	main()
 	std::cout << "Tests: create Vogon!" << std::endl;
 	try
 	{
-//		Bureaucrat vogon("Vogon", 21);
-		Bureaucrat vogon("Vogon", 0);
+		Bureaucrat vogon("Vogon", 21);
+//		Bureaucrat vogon("Vogon", 0);
 //		Bureaucrat vogon("Vogon", 151);
 		std::cout << vogon;
 	}
@@ -19,7 +19,7 @@ int	main()
 	std::cout << "Tests: change grade!" << std::endl;
 	Bureaucrat vogon2("Vogon2", 42);
 	vogon2.upgrade();
-	std::cout << vogon2;
+	std::cout << std::endl;
 	vogon2.downgrade();
 	std::cout << vogon2;
 	std::cout << std::endl;
@@ -34,7 +34,7 @@ int	main()
 //	Bureaucrat vogon5(vogon);
 //	std::cout << vogon5;
 //	std::cout << std::endl;
-
+//
 //	Bureaucrat vogon6("Vogon_copy", 21);
 //	vogon6 = vogon2;
 //	std::cout << vogon6;

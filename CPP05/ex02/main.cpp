@@ -7,29 +7,43 @@
 int	main()
 {
 	std::cout << "Tests: execute forms!" << std::endl;
-	Bureaucrat				Vogon("Vogon", 4);
+	Bureaucrat Vogon("Vogon", 5);
 	std::cout << std::endl;
-	Bureaucrat				Vogon1("Vogon1", 140);
-	std::cout << std::endl;
-	ShrubberyCreationForm	form1("treeform");
-	std::cout << std::endl;
-	RobotomyRequestForm		form2("robotform");
-	std::cout << std::endl;
-	PresidentialPardonForm	form3("pardonform");
+	Bureaucrat Vogon1("Vogon1", 138);
 	std::cout << std::endl;
 
-	Vogon.signForm(form1);
-	Vogon.executeForm(form1);
-	Vogon.executeForm(form1);
+	ShrubberyCreationForm	tree("sweet home");
 	std::cout << std::endl;
-	Vogon.executeForm(form2);
-	Vogon.signForm(form2);
-	Vogon.executeForm(form2);
+
+	RobotomyRequestForm		robot("My job");
 	std::cout << std::endl;
-	Vogon1.signForm(form3);
-	Vogon.executeForm(form3);
-	Vogon.signForm(form3);
-	Vogon.executeForm(form3);
+
+	PresidentialPardonForm	pardon("Humma Kavula");
+	std::cout << std::endl;
+
+	std::cout << tree;
+	tree.execute(Vogon);
+	Vogon.executeForm(tree);
+	std::cout << std::endl;
+	tree.execute(Vogon1);
+	Vogon1.executeForm(tree);
+	std::cout << std::endl;
+
+	std::cout << robot;
+	robot.execute(Vogon);
+	Vogon.executeForm(robot);
+	std::cout << std::endl;
+	robot.execute(Vogon1);
+	Vogon1.executeForm(robot);
+	std::cout << std::endl;
+
+	std::cout << pardon;
+	pardon.execute(Vogon);
+	Vogon.executeForm(pardon);
+	std::cout << std::endl;
+	pardon.execute(Vogon1);
+	Vogon1.executeForm(pardon);
+	std::cout << std::endl;
 
 	return 0;
 }

@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 		throw (GradeTooLowException());
 	else if (grade < 1)
 		throw (GradeTooHighException());
-	elseы
+	else
 	{
 		this->_grade = grade;
 		std::cout << "Constructor Bureaucrat " << this->_name << " called" << std::endl;

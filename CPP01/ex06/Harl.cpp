@@ -57,3 +57,30 @@ void	Harl::complain(std::string level)
 			std::cout << "Incorrect level!" << std::endl;
 	}
 }
+
+//void	Harl::complain(std::string level)
+//{
+//	std::string func_names[] = {
+//			"DEBUG",
+//			"INFO",
+//			"WARNING",
+//			"ERROR"
+//	};
+//	void (Harl::*members[4])() = {
+//			&Harl::debug,
+//			&Harl::info,
+//			&Harl::warning,
+//			&Harl::error
+//	};
+//	for (int i = 0; i < 4; i++)
+//	{
+//		if (!func_names[i].compare(level))
+//			(this->*members[i])();
+//		else
+//		{
+//			std::cout << "Incorrect level!" << std::endl;
+//			break;
+//		}
+//
+//	}
+//}

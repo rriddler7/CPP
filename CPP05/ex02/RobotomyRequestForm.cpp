@@ -44,7 +44,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	{
 		if (this->getGradeExecute() < executor.getGrade())
 		{
-			throw GradeTooLowException();
+			throw GradeTooHighException();
 		}
 		else
 		{

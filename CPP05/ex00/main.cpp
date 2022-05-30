@@ -17,17 +17,40 @@ int	main()
 	std::cout << std::endl;
 
 	std::cout << "Tests: change grade!" << std::endl;
-	Bureaucrat vogon2("Vogon2", 42);
-	vogon2.upgrade();
+	try
+	{
+		Bureaucrat vogon2("Vogon2", 42);
+		vogon2.upgrade();
+		std::cout << std::endl;
+		vogon2.downgrade();
+		std::cout << vogon2;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << std::endl;
-	vogon2.downgrade();
-	std::cout << vogon2;
+
+	try
+	{
+		Bureaucrat vogon3("Vogon_senior", 1);
+		vogon3.upgrade();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << std::endl;
-	Bureaucrat vogon3("Vogon_senior", 1);
-	vogon3.upgrade();
-	std::cout << std::endl;
-	Bureaucrat vogon4("Vogon_junior", 150);
-	vogon4.downgrade();
+
+	try
+	{
+		Bureaucrat vogon4("Vogon_junior", 150);
+		vogon4.downgrade();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << std::endl;
 
 //	std::cout << "Tests: copy constructor, assignment operator!" << std::endl;

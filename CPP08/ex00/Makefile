@@ -1,9 +1,8 @@
-NAME =	templ
+NAME =	easy
 
 SRC = 	main.cpp \
 
-HEADER = whatever.hpp \
-		Awesome.hpp	\
+HEADER = easyfind.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

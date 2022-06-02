@@ -1,5 +1,6 @@
 #include <iostream>
 #include "whatever.hpp"
+#include "Awesome.hpp"
 
 int main()
 {
@@ -43,4 +44,14 @@ int main()
 	std::cout << "max = " << mx2 << std::endl;
 	std::string smax = max(s1, s2);
 	std::cout << "max = " << smax << std::endl;
+	std::cout << std::endl;
+
+	Awesome x(2), y(4);
+
+	swap(x, y);
+	std::cout << x << " " << y << std::endl;
+	std::cout << max(x, y) << std::endl;
+	std::cout << min(x, y) << std::endl;
+	return (0);
+
 }

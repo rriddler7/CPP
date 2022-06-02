@@ -1,9 +1,9 @@
-NAME =	templ
+NAME =	span
 
 SRC = 	main.cpp \
+		Span.cpp \
 
-HEADER = whatever.hpp \
-		Awesome.hpp	\
+HEADER = Span.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

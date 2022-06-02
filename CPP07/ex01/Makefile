@@ -3,6 +3,7 @@ NAME =	iter
 SRC = 	main.cpp \
 
 HEADER = iter.hpp \
+		Awesome.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

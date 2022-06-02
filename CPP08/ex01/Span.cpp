@@ -21,8 +21,6 @@ Span & Span::operator=(const Span &prototype)
 		this->_nmbrs = prototype._nmbrs;
 	}
 
-//	assign(prototype.begin(), prototype.end()); //Присваивает вектору новое содержимое , заменяя его текущее содержимое и соответствующим образом изменяя его размер .
-
 	return *this;
 }
 
@@ -35,71 +33,48 @@ unsigned int Span::getLen()
 	return _len;
 }
 
-void	Span::addNumber(unsigned int nmb)
+void	Span::addNumber(int nmb)
 {
-	try
+
+	if (_nmbrs.size() >= _len)
+		throw (SpanFilled());
+	else
+		_nmbrs.push_back(nmb);
+
+}
+
+int	Span::shortestSpan()
+{
+	if (this->_nmbrs.size() < 2)
+		throw (NoSpan());
+	else
 	{
-		if (_nmbrs.size() >= _len)
-			throw (SpanFilled());
-		else
-		{
-			_nmbrs.push_back(nmb);
-		}
-	}
-	catch (std::exception &e)
-	{
-		std::cout << "Error:" << e.what() << std::endl;
+		std::vector<int> tmp = this->_nmbrs;
+		std::vector<int>::iterator start = tmp.begin();
+		std::vector<int>::iterator finish = tmp.end();
+		std::sort(start, finish);
+		std::adjacent_difference(start, finish, start);
+			return *std::min_element(start + 1, finish);
 	}
 }
 
-unsigned int	Span::shortestSpan()
+int Span::longestSpan()
 {
-	try
+	if (this->_nmbrs.size() < 2)
+		throw (NoSpan());
+	else
 	{
-		if (_len < 2)
-			throw (NoSpan());
-		else
-		{
-			std::vector<int> tmp = this->_nmbrs;
-			std::vector<int>::iterator start = tmp.begin();
-			std::vector<int>::iterator finish = tmp.end();
-			std::sort(start, finish);
-			std::adjacent_difference(start, finish, start); //Вычислить соседнюю разницу диапазона
-			return *std::min_element(start, finish);
-		}
-	}
-	catch (std::exception &e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
-
-	return 0;
-}
-
-unsigned int Span::longestSpan()
-{
-	try
-	{
-		if (_len < 2)
-			throw (NoSpan());
-		else
-		{
-			std::vector<int> tmp = this->_nmbrs;
-			std::vector<int>::iterator start = tmp.begin();
-			std::vector<int>::iterator finish = tmp.end();
+		std::vector<int> tmp = this->_nmbrs;
+		std::vector<int>::iterator start = tmp.begin();
+		std::vector<int>::iterator finish = tmp.end();
 			return *std::max_element(start, finish) - *std::min_element(start, finish);
-		}
 	}
-	catch (std::exception &e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
-
-	return 0;
 }
 
-void	Span::rangeIterators(std::vector<int>::iterator start, std::vector<int>::iterator finish)
+void	Span::addRange(std::vector<int>::iterator start, std::vector<int>::iterator finish)
 {
+	if (this->_nmbrs.size() + std::distance(start, finish) > this->_len)
+		throw (SpanFilled());
 	this->_nmbrs.insert(this->_nmbrs.end(), start, finish);
 }
 

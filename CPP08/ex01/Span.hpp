@@ -16,10 +16,10 @@ public:
 	Span & operator = (const Span &);
 	~Span();
 	unsigned int getLen();
-	void addNumber(unsigned int nmb);
-	unsigned int shortestSpan();
-	unsigned int longestSpan();
-	void rangeIterators(std::vector<int>::iterator start, std::vector<int>::iterator finish);
+	void addNumber(int nmb);
+	int shortestSpan();
+	int longestSpan();
+	void addRange(std::vector<int>::iterator start, std::vector<int>::iterator finish);
 
 	class NoSpan : public std::exception
 	{
